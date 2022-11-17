@@ -88,8 +88,7 @@ class BatchNorm1D(LayerBase):
             self.X.append(X)
 
         X_hat = (X - X_mean) / np.sqrt(X_var + epsi)
-        y = scaler * X_hat + intercept
-        return y
+        return scaler * X_hat + intercept
 
     def backward(self, dLda, retain_grads=True):
         """
